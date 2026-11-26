@@ -91,6 +91,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .strip{margin:clamp(70px,9vw,140px) 0;background:var(--neon);color:#000;overflow:hidden;white-space:nowrap}
 .strip .track{display:inline-block;animation:marq 32s linear infinite;font-family:var(--f-display);font-size:clamp(14px,2.3vw,34px);line-height:1;padding:8px 0;text-transform:uppercase}
 .strip .track span{margin:0 .5em}
+.strip.sm{margin:34px 0 0;background:var(--neon)}
+.strip.sm .track{font-size:clamp(13px,1.3vw,17px);padding:6px 0;animation-duration:50s}
+.bimg.bleed{width:calc(100% + 2*var(--pad));max-width:none;margin:0 calc(-1*var(--pad));border:0}
+.gal.duo{max-width:1100px;margin-left:auto;margin-right:auto;align-items:center;grid-template-columns:5fr 6fr}
+@media (max-width:820px){.gal.duo{grid-template-columns:1fr 1fr}}
 .strip .track i{font-style:normal;opacity:.55}
 @keyframes marq{to{transform:translateX(-50%)}}
 
@@ -141,7 +146,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .ov-meta{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px}
 .ov-head h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;line-height:.88;font-size:clamp(60px,14vw,240px);overflow-wrap:anywhere}
 .ov-intro{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:44px var(--pad) 10px}
-.ov-intro .lead{grid-column:1/9;font-size:clamp(15px,1.5vw,20px);line-height:1.55}
+.ov-intro .lead{grid-column:1/9;font-size:clamp(11px,.85vw,12px);line-height:1.65;max-width:60ch}
 .ov-intro .cred{grid-column:9/13;color:var(--grey)}
 .facts{margin-top:14px}
 .facts div{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)}
@@ -369,6 +374,7 @@ const ALL = [
     img:'img/wwf.jpg',
     lead:'Using AI to bring climate data to life, through the eyes of famous painters.',
     logo:'img/wf-logo.png',
+    strip:['Cannes Lions · Bronze','Clio · Gold','The One Show · Gold','ADC · Gold','Epica · 3× Gold','Webby · 3× Winner','Eurobest · 3× Silver','Max Awards · 2× Gold','LIA · Silver','Spotlight · Bronze'],
     facts:[['Client','WWF'],['Format','Exhibition · Web · Digital assets'],['Venue','POP Kudamm, Berlin'],['Scale','~2000 AI-generated images']],
     blocks:[
       {embeds:[{t:'yt',id:'geZBvWf6NLU'}], one:true},
@@ -475,6 +481,7 @@ const ALL = [
     id:'mcdonalds', title:'McDonald’s Stages', ring:'McDonald’s Stages', cat:'Posters · Print',
     img: CARGO+'6cbe37fb9c8742c3cdcef731d1807be3cff0733e5cc185e402f884eae6bcfe2d/Bus-Shelter-Poster-Mockup-PSD-Template.jpg',
     lead:'The Signature Collection: three posters to follow the new premium burgers from McDonald’s. The idea was to make the burgers the star of the show, or better, the show itself.',
+    strip:['New York Festivals 2020 · Finalist','Lürzer’s Archive Vol. 06 · 2019','200 Best Digital Artists Worldwide · 2021'],
     facts:[['Client','McDonald’s'],['Format','Posters · Print'],['Collection','The Signature Collection']],
     blocks:[
       {image:{src:'img/mc-stage.jpg',alt:'The Signature Collection, theatre stage'}},
@@ -483,9 +490,11 @@ const ALL = [
         {img:'img/mc-poster2.jpg',alt:'Signature Collection poster: Burger in its art form'},
         {img:'img/mc-poster3.jpg',alt:'Signature Collection poster: A symphony for your senses'}
       ]}},
-      {gap:true, image:{src:'img/mc-mockup-grid.jpg',alt:'Signature Collection posters mockup'}},
-      {image:{src:'img/mc-bus.jpg',alt:'Signature Collection poster at a bus shelter'}},
-      {gap:true, gallery:{cols:1, cls:'mid', items:[{img:'img/mc-200best.jpg',alt:'Selected for 200 Best Digital Artists worldwide 2021/22'}]}},
+      {gap:true, image:{src:'img/mc-mockup-grid.jpg',cls:'bleed',alt:'Signature Collection posters mockup'}},
+      {gap:true, gallery:{cols:2, cls:'duo', items:[
+        {img:'img/mc-200best.jpg',alt:'Selected for 200 Best Digital Artists worldwide 2021/22'},
+        {img:'img/mc-bus.jpg',alt:'Signature Collection poster at a bus shelter'}
+      ]}},
       {image:{src:'img/mc-luerzer.jpg',alt:'Lürzer’s Archive'}, rows:[
         ['New York Festivals 2020','Finalist'],
         ['Lürzer’s Archive Vol. 06','2019'],
@@ -635,6 +644,10 @@ function embedHTML(e){
   if(e.t==='img')  return `<div class="pic"><img src="${e.src}" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'"></div>`;
   return '';
 }
+function stripHTML(items){
+  const run = Array(6).fill(items.map(w=>`<span>${w}</span><i>✦</i>`).join('')).join('');
+  return `<div class="strip sm" aria-label="Recognition"><div class="track">${run+run}</div></div>`;
+}
 function galleryHTML(g){
   const items = g.items.map(it=>{
     const media = it.vid
@@ -671,6 +684,7 @@ function projectHTML(idx){
       <p class="lead">${p.lead}</p>
       ${(p.cred||p.facts)?`<div class="cred s">${p.logo?`<img class="panda" src="${p.logo}" alt="">`:''}${p.cred?`<p>${p.cred}</p>`:''}${p.facts?`<dl class="facts">${p.facts.map(f=>`<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`).join('')}</dl>`:''}</div>`:''}
     </div>
+    ${p.strip?stripHTML(p.strip):''}
     ${blocks}
     <div class="ov-foot">
       <button data-go="${prev.id}"><span class="s dim">← Previous</span><b>${prev.title}</b></button>
