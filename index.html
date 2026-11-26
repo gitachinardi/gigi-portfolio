@@ -211,6 +211,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .ulink{color:var(--neon);border-bottom:1px solid var(--neon)}
 .blk.hasbg{position:relative;margin-top:clamp(90px,11vw,170px);padding:clamp(80px,10vw,150px) var(--pad);background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),var(--bg-img) center/cover no-repeat}
 .blk.hasbg p{color:#fff}
+.blk.hasbg .embeds.one{max-width:960px;margin:10px auto 0}
 .blk.hasbg .gal.mid{margin-left:auto;margin-right:auto}
 .blk.hasbg .vid.v{box-shadow:0 30px 90px rgba(0,0,0,.55)}
 .blk.gap{padding-top:clamp(90px,11vw,170px)}
@@ -495,7 +496,7 @@ const ALL = [
     blocks:[
       {h:'Ignite the gold in you', p:'TVC created for the new Ferrero Rocher campaign running in Germany and Italy. Directed by Hans Emmanuel. Choreography by Olivier Casamayou. Produced by Embassy of Dreams.', embeds:[{t:'vimeo',id:'672718959'}], one:true},
       {gallery:{cols:3,items:[1,2,3,4,5,6,7,8,9].map(n=>({img:'img/fe-r'+n+'.jpg'}))}},
-      {h:'Mon Chéri', p:'Campaign film.', ph:'Film coming soon', gap:true},
+      {h:'Mon Chéri', p:'Campaign film.', bg:'img/fe-mc-bg.jpg', embeds:[{t:'yt',id:'GLUCrShZSKE'}], one:true},
       {h:'Ferrero Reintro', p:'Every year the pralines go on summer break, and every year they have to come back with a bang. These posters are the comeback moments: a different idea, colour and mood for each season, all with one job: making people crave the pralines again.', gap:true,
        pstrip:{t:'Scroll sideways →', loop:true, items:['a1','a2','a3','a4','b1','b2','b3','b4','c1','c2','c3','d1','d2','d3','d4','e1','e2']}},
       {grid3:true, gap:true, embeds:[{t:'yt',id:'VidrE--r9AQ'},{t:'yt',id:'zNJcHyiyJVA'},{t:'yt',id:'P4DIVPlWuxg'},{t:'yt',id:'0Wt4-aWv6Lo'},{t:'yt',id:'Oc03PtLl9JE'},{t:'yt',id:'Gia-Llqycn8'},{t:'vimeo',id:'629905946'},{t:'vimeo',id:'629905665'},{t:'vimeo',id:'629905842'}]},
