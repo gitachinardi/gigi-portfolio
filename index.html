@@ -181,6 +181,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .gal figcaption span{color:var(--grey)}
 .gal figcaption em{font-style:normal;color:var(--neon)}
 .ulink{color:var(--neon);border-bottom:1px solid var(--neon)}
+.blk.hasbg{position:relative;margin-top:clamp(90px,11vw,170px);padding:clamp(80px,10vw,150px) var(--pad);background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),var(--bg-img) center/cover no-repeat}
+.blk.hasbg p{color:#fff}
+.blk.hasbg .vid.v{box-shadow:0 30px 90px rgba(0,0,0,.55)}
 .blk.gap{padding-top:clamp(90px,11vw,170px)}
 .vid.v{aspect-ratio:9/16;width:min(100%,420px);margin:0 auto}
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1080px;margin:10px auto 0}
@@ -417,17 +420,32 @@ const ALL = [
     lead:'Experiments in how far AI can go as a filmmaking tool.',
     cred:'Created with AI, together with Nicolau Attallah, at <a class="ulink" href="https://nicoattallah.com/notforyoulab/" target="_blank" rel="noopener">NØTFØRYØU.LAB ↗</a>',
     blocks:[
-      {gap:true, embeds:[{t:'yt',id:'3uxj8kbCGgk'}], one:true, cap:['Mon Chéri','AI animatic film made for concept testing before the real shoot, for the new Mon Chéri campaign.']},
-      {gap:true, embeds:[{t:'yt',id:'1OevusXNbx0'}], one:true, cap:['The Fairy Dealer','Short film']},
-      {gap:true, trio:[{vid:'img/ai-ss1.mp4',poster:'img/ai-ss1.jpg'},{t:'yt',id:'1JEZWL0bs68',v:true},{vid:'img/ai-ss2.mp4',poster:'img/ai-ss2.jpg'}], cap:['Silicon Soul','Music video created entirely with AI, featuring an AI rapper in a world inspired by algorithms, data flows and digital consciousness.']},
-      {gap:true, embeds:[{t:'yt',id:'uqwXYZBBa5I',v:true}], one:true, vert:true, cap:['The Last Mirage','Short film. A hot day, no shades, a long walk and the hope to reach the last oasis.']},
-      {gap:true, embeds:[{t:'yt',id:'IZGaI2hiB-I'}], one:true, cap:['Sanctus IV','Trailer. An experiment imagining how far AI might go, even to the point of replacing real people.']},
-      {gap:true, gallery:{cols:1, cls:'mid', items:[{img:'img/ai-heaven.jpg',alt:'Ferrero Rocher Ice Cream poster',cap:['Ferrero Rocher Ice Cream','Print inspired by the Italian masters of art']}]}},
-      {gallery:{cols:3, items:[
+      {gap:true, embeds:[{t:'yt',id:'3uxj8kbCGgk'}], one:true, h:'Mon Chéri', p:'AI animatic film made for concept testing before the real shoot, for the new Mon Chéri campaign.'},
+      {gap:true, embeds:[{t:'yt',id:'1OevusXNbx0'}], one:true, h:'The Fairy Dealer', p:'Short film'},
+      {gallery:{cols:3, scroll:true, items:[
+        {img:'img/ai-fd-poster1.jpg',alt:'The Fairy Dealer poster'},
+        {img:'img/ai-fd-poster2.jpg',alt:'The Fairy Dealer poster'},
+        {img:'img/ai-fd-poster3.jpg',alt:'The Fairy Dealer poster'}
+      ]}},
+      {gap:true, gallery:{cols:4, items:[
+        {vid:'img/ai-fd1.mp4',poster:'img/ai-fd1.jpg'},
+        {vid:'img/ai-fd2.mp4',poster:'img/ai-fd2.jpg'},
+        {vid:'img/ai-fd3.mp4',poster:'img/ai-fd3.jpg'},
+        {vid:'img/ai-fd4.mp4',poster:'img/ai-fd4.jpg'},
+        {vid:'img/ai-fd5.mp4',poster:'img/ai-fd5.jpg'},
+        {vid:'img/ai-fd6.mp4',poster:'img/ai-fd6.jpg'},
+        {vid:'img/ai-fd7.mp4',poster:'img/ai-fd7.jpg'},
+        {vid:'img/ai-fd8.mp4',poster:'img/ai-fd8.jpg'}
+      ]}},
+      {gap:true, trio:[{vid:'img/ai-ss1.mp4',poster:'img/ai-ss1.jpg'},{t:'yt',id:'1JEZWL0bs68',v:true},{vid:'img/ai-ss2.mp4',poster:'img/ai-ss2.jpg'}], h:'Silicon Soul', p:'Music video created entirely with AI, featuring an AI rapper in a world inspired by algorithms, data flows and digital consciousness.'},
+      {gap:true, bg:'img/ai-mirage-bg.jpg', embeds:[{t:'yt',id:'uqwXYZBBa5I',v:true}], one:true, vert:true, h:'The Last Mirage', p:'Short film. A hot day, no shades, a long walk and the hope to reach the last oasis.'},
+      {gap:true, embeds:[{t:'yt',id:'IZGaI2hiB-I'}], one:true, h:'Sanctus IV', p:'Trailer. An experiment imagining how far AI might go, even to the point of replacing real people.'},
+      {gap:true, h:'Ferrero Rocher Ice Cream', p:'Print inspired by the Italian masters of art', gallery:{cols:1, cls:'mid', items:[{img:'img/ai-heaven.jpg',alt:'Ferrero Rocher Ice Cream poster'}]}},
+      {gap:true, gallery:{cols:3, items:[
         {img:'img/ai-mt1.jpg',alt:'Metropolitan Threads'},
         {img:'img/ai-mt2.jpg',alt:'Metropolitan Threads'},
         {img:'img/ai-mt3.jpg',alt:'Metropolitan Threads'}
-      ]}, cap:['Metropolitan Threads','Fashion editorial inspired by urban living']}
+      ]}, h:'Metropolitan Threads', p:'Fashion editorial inspired by urban living'}
     ]
   },
   {
@@ -619,7 +637,7 @@ function galleryHTML(g){
 function projectHTML(idx){
   const p = PROJECTS[idx], prev = PROJECTS[(idx-1+n)%n], next = PROJECTS[(idx+1)%n];
   const blocks = p.blocks.map(b=>`
-    <section class="blk ${b.gap?'gap':''}">
+    <section class="blk ${b.gap?'gap':''} ${b.bg?'hasbg':''}" ${b.bg?`style="--bg-img:url('${b.bg}')"`:''}>
       ${b.when?`<div class="when s">${b.when}</div>`:''}
       ${b.h?`<h3>${b.h}</h3>`:''}
       ${b.p?`<p>${b.p}</p>`:''}
