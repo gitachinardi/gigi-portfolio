@@ -180,6 +180,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .gal figcaption b{font-weight:700}
 .gal figcaption span{color:var(--grey)}
 .gal figcaption em{font-style:normal;color:var(--neon)}
+.ulink{color:var(--neon);border-bottom:1px solid var(--neon)}
+.capline{display:grid;gap:2px;margin-top:12px}
+.capline b{font-weight:700}
+.capline span{color:var(--grey)}
+.gal.narrow{max-width:700px;margin-left:auto;margin-right:auto}
+.gal.mid{max-width:560px;margin-left:auto;margin-right:auto}
 .bimg{display:block;width:100%;height:auto;margin:14px 0 26px}
 .bimg.awards{max-width:1300px;opacity:.92}
 .panda{display:block;height:84px;width:84px;margin-bottom:12px}
@@ -399,14 +405,24 @@ const ALL = [
     id:'ai', title:'AI Films', ring:'AI Films', cat:'Short film · Music video',
     img: CARGO+'7863199b04eeea3b9409c9a939bf0b6b0be6ce99d9e95f70afd188a5f219ca0c/POSTER1.jpg',
     lead:'Experiments in how far AI can go as a filmmaking tool.',
-    cred:'Created with AI, together with Nicolau Attallah, at NØTFØRYØU.LAB.',
+    cred:'Created with AI, together with Nicolau Attallah, at <a class="ulink" href="https://nicoattallah.com/notforyoulab/" target="_blank" rel="noopener">NØTFØRYØU.LAB ↗</a>',
     blocks:[
       {embeds:[{t:'mp4',src:'img/ai.mp4'}], one:true},
-      {h:'The Fairy Dealer', p:'Short film.', embeds:[{t:'yt',id:'1OevusXNbx0'}], one:true,
-       link:{href:'https://nicoattallah.com/notforyoulab/',label:'NØTFØRYØU.LAB'}},
-      {h:'Sanctus IV', p:'Trailer. An experiment imagining how far AI might go, even to the point of replacing real people.', embeds:[{t:'yt',id:'IZGaI2hiB-I'}], one:true},
-      {h:'Silicon Soul', p:'Music video created entirely with AI, featuring an AI rapper in a world inspired by algorithms, data flows and digital consciousness.', embeds:[{t:'yt',id:'1JEZWL0bs68'}], one:true},
-      {h:'The Last Mirage', p:'Short film. A hot day, no shades, a long walk and the hope to reach the last oasis.', embeds:[{t:'yt',id:'uqwXYZBBa5I'}], one:true}
+      {embeds:[{t:'yt',id:'1OevusXNbx0'}], one:true, cap:['The Fairy Dealer','Short film']},
+      {embeds:[{t:'yt',id:'IZGaI2hiB-I'}], one:true, cap:['Sanctus IV','Trailer. An experiment imagining how far AI might go, even to the point of replacing real people.']},
+      {embeds:[{t:'yt',id:'1JEZWL0bs68'}], one:true, cap:['Silicon Soul','Music video created entirely with AI, featuring an AI rapper in a world inspired by algorithms, data flows and digital consciousness.']},
+      {gallery:{cols:2, cls:'narrow', items:[
+        {vid:'img/ai-ss1.mp4',poster:'img/ai-ss1.jpg'},
+        {vid:'img/ai-ss2.mp4',poster:'img/ai-ss2.jpg'}
+      ]}},
+      {embeds:[{t:'yt',id:'uqwXYZBBa5I'}], one:true, cap:['The Last Mirage','Short film. A hot day, no shades, a long walk and the hope to reach the last oasis.']},
+      {embeds:[{t:'yt',id:'3uxj8kbCGgk'}], one:true},
+      {gallery:{cols:1, cls:'mid', items:[{img:'img/ai-heaven.jpg',alt:'Ferrero Rocher Ice Cream poster',cap:['Ferrero Rocher Ice Cream','Print inspired by the Italian masters of art']}]}},
+      {gallery:{cols:3, items:[
+        {img:'img/ai-mt1.jpg',alt:'Metropolitan Threads'},
+        {img:'img/ai-mt2.jpg',alt:'Metropolitan Threads'},
+        {img:'img/ai-mt3.jpg',alt:'Metropolitan Threads'}
+      ]}, cap:['Metropolitan Threads','Fashion editorial inspired by urban living']}
     ]
   },
   {
@@ -593,7 +609,7 @@ function galleryHTML(g){
     const cap = c ? `<figcaption class="s"><b>${c[0]}</b>${c[1]?`<span>${c[1]}</span>`:''}${c[2]?`<em>${c[2]}</em>`:''}</figcaption>` : '';
     return `<figure><div class="fm">${media}</div>${cap}</figure>`;
   }).join('');
-  return `<div class="gal ${g.light?'light':''} ${g.scroll?'scroll':''}" style="--c:${g.cols||3}">${items}</div>`;
+  return `<div class="gal ${g.light?'light':''} ${g.scroll?'scroll':''} ${g.cls||''}" style="--c:${g.cols||3}">${items}</div>`;
 }
 function projectHTML(idx){
   const p = PROJECTS[idx], prev = PROJECTS[(idx-1+n)%n], next = PROJECTS[(idx+1)%n];
@@ -607,6 +623,7 @@ function projectHTML(idx){
       ${b.gallery?galleryHTML(b.gallery):''}
       ${b.rows?`<ul class="rowlist s">${b.rows.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>`:''}
       ${b.embeds?`<div class="embeds ${b.one?'one':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
+      ${b.cap?`<div class="capline s"><b>${b.cap[0]}</b>${b.cap[1]?`<span>${b.cap[1]}</span>`:''}</div>`:''}
       ${b.link?`<a class="btn" href="${b.link.href}" target="_blank" rel="noopener">${b.link.label} ↗</a>`:''}
     </section>`).join('');
   return `
