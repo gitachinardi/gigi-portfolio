@@ -161,7 +161,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .blk .when{color:var(--neon);margin:18px 0 8px}
 .embeds{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));margin-top:10px}
 .embeds.one{grid-template-columns:1fr}
-.embeds.grid3{grid-template-columns:repeat(3,1fr);gap:12px;max-width:1000px}
+.embeds.grid3{grid-template-columns:repeat(3,1fr);gap:12px;max-width:1000px;margin-left:auto;margin-right:auto}
 @media(max-width:700px){.embeds.grid3{grid-template-columns:1fr}}
 .vid{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
 .vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
@@ -211,6 +211,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .ulink{color:var(--neon);border-bottom:1px solid var(--neon)}
 .blk.hasbg{position:relative;margin-top:clamp(90px,11vw,170px);padding:clamp(80px,10vw,150px) var(--pad);background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),var(--bg-img) center/cover no-repeat}
 .blk.hasbg p{color:#fff}
+.blk.hasbg .gal.mid{margin-left:auto;margin-right:auto}
 .blk.hasbg .vid.v{box-shadow:0 30px 90px rgba(0,0,0,.55)}
 .blk.gap{padding-top:clamp(90px,11vw,170px)}
 .vid.v{aspect-ratio:9/16;width:min(100%,420px);margin:0 auto}
@@ -488,18 +489,17 @@ const ALL = [
     ]
   },
   {
-    id:'ferrero', title:'Ferrero Rocher', ring:'Ferrero', cat:'TVC · Print',
+    id:'ferrero', title:'Ferrero', ring:'Ferrero', cat:'TVC · Print',
     img: CARGO+'cd43c55fa2007f9430bba862426b9d44b17fad50208fdddf355d4c90d7106fd4/BG.jpg',
-    lead:'Campaign films for Ferrero Rocher and the Ferrero pralines collection.',
-    cred:'“Ignite the gold in you”: directed by Hans Emmanuel. Choreography by Olivier Casamayou. Produced by Embassy of Dreams.',
+    lead:'Films, posters and campaign ideas for the Ferrero brands: Ferrero Rocher, Mon Chéri, Küsschen and the wider pralines collection.',
     blocks:[
-      {h:'Ignite the gold in you', p:'TVC created for the new Ferrero Rocher campaign running in Germany and Italy.', embeds:[{t:'vimeo',id:'672718959'}], one:true},
+      {h:'Ignite the gold in you', p:'TVC created for the new Ferrero Rocher campaign running in Germany and Italy. Directed by Hans Emmanuel. Choreography by Olivier Casamayou. Produced by Embassy of Dreams.', embeds:[{t:'vimeo',id:'672718959'}], one:true},
       {gallery:{cols:3,items:[1,2,3,4,5,6,7,8,9].map(n=>({img:'img/fe-r'+n+'.jpg'}))}},
       {h:'Mon Chéri', p:'Campaign film.', ph:'Film coming soon', gap:true},
-      {h:'Ferrero Reintro', p:'“Verlieb Dich Frisch.” Campaign announcing the comeback of the Ferrero pralines collection after the summer break.', gap:true,
+      {h:'Ferrero Reintro', p:'Every year the pralines go on summer break, and every year they have to come back with a bang. These posters are the comeback moments: a different idea, colour and mood for each season, all with one job: making people crave the pralines again.', gap:true,
        pstrip:{t:'Scroll sideways →', loop:true, items:['a1','a2','a3','a4','b1','b2','b3','b4','c1','c2','c3','d1','d2','d3','d4','e1','e2']}},
       {grid3:true, gap:true, embeds:[{t:'yt',id:'VidrE--r9AQ'},{t:'yt',id:'zNJcHyiyJVA'},{t:'yt',id:'P4DIVPlWuxg'},{t:'yt',id:'0Wt4-aWv6Lo'},{t:'yt',id:'Oc03PtLl9JE'},{t:'yt',id:'Gia-Llqycn8'},{t:'vimeo',id:'629905946'},{t:'vimeo',id:'629905665'},{t:'vimeo',id:'629905842'}]},
-      {h:'Ferrero Rocher Ice Cream', p:'Poster.', gap:true, gallery:{cols:1,cls:'mid',items:[{img:'img/ai-heaven.jpg'}]}}
+      {h:'Rocher Ice Cream', p:'An ideation for the launch post of the Rocher ice cream. It takes the Italian tradition of gelato, the afternoon scoop and the golden hour, and meets it with the Rocher tradition of gold, crunch and ritual, turning both into one visual concept.', bg:'img/fe-sky-bg.jpg', gallery:{cols:1,cls:'mid',items:[{img:'img/ai-heaven.jpg'}]}}
     ]
   },
   {
