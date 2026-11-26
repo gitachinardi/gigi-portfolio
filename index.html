@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gigi Tachinardi — Creative Director</title>
+<meta name="description" content="Gigi Tachinardi is a Creative Director from São Paulo, based in Madrid. Brand, film, print, data and AI.">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:title" content="Gigi Tachinardi — Creative Director">
+<meta property="og:description" content="Creative Director from São Paulo, based in Madrid. Brand, film, print, data and AI.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0b'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23ccff00' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23ccff00'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --fg:#f1f1ec; --neon:#ccff00; --grey:#8c918e;
+  --line:rgba(241,241,236,.16);
+  --f-display:'Anton','Impact','Arial Narrow',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --pad:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-mono);font-size:13px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+.s{font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.neon{color:var(--neon)}
+.dim{color:var(--grey)}
+
+/* film grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.07;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:grid;grid-template-columns:1fr auto;align-items:start;gap:16px;padding:16px var(--pad);
+  background:linear-gradient(var(--bg) 20%,rgba(10,10,11,0));}
+.brand{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+.brand sup{color:var(--neon);font-size:9px;margin-left:2px}
+.brand{display:block}
+.brand small.go{color:var(--neon);margin-top:8px}
+.brand small{display:block;margin-top:3px;font-weight:400;letter-spacing:.09em;color:var(--grey);font-size:10px}
+.top .mid{text-align:center;color:var(--grey)}
+.top nav{display:flex;gap:22px;justify-content:flex-end}
+.top nav a{position:relative;padding:2px 0}
+.top nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:var(--neon);transition:right .3s}
+.top nav a:hover{color:var(--neon)}
+.top nav a:hover::after{right:0}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-rows:1fr auto;padding:0 var(--pad);overflow:hidden}
+.gigi{position:absolute;left:50%;top:50%;z-index:30;pointer-events:none;user-select:none;white-space:nowrap;
+  font-family:var(--f-display);font-size:calc(var(--D,600px)*.98);line-height:.8;letter-spacing:-.01em;
+  color:transparent;-webkit-text-stroke:1px var(--neon);transform:translate(-50%,-49%)}
+.corner{position:absolute;z-index:2;color:var(--neon)}
+.corner.tl{top:76px;left:var(--pad)}
+.corner.tr{top:76px;right:var(--pad);text-align:right}
+.stage{position:relative;z-index:1;margin-top:92px;min-height:320px;touch-action:pan-y}
+.disc{position:absolute;left:50%;top:50%;border-radius:50%;padding:0;
+  filter:grayscale(1) brightness(.62);box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.stage.ready .disc{transition:transform .85s cubic-bezier(.6,.05,.2,1),opacity .6s,filter .6s,box-shadow .6s}
+.disc.active{filter:none;box-shadow:0 30px 80px rgba(0,0,0,.65)}
+.disc .spin{position:absolute;inset:0;border-radius:50%;overflow:hidden;
+  background:radial-gradient(circle at 30% 30%,#2a3300,#0d0f00 70%)}
+.disc.active .spin{animation:spin 20s linear infinite}
+.disc .spin img,.disc .spin video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.disc svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.disc svg text{font-family:var(--f-mono);font-weight:700;font-size:15.5px;fill:var(--neon);text-transform:uppercase}
+.enter{position:absolute;left:50%;top:50%;width:96px;height:96px;border-radius:50%;background:var(--neon);color:#000;display:grid;place-items:center;
+  font-weight:700;letter-spacing:.12em;font-size:11px;opacity:0;transform:translate(-50%,-50%) scale(.5);transition:.35s;pointer-events:none}
+.disc.active:hover .enter,.disc.active:focus-visible .enter{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.disc:focus-visible{outline:2px solid var(--fg);outline-offset:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.hero-foot{position:relative;z-index:3;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end;padding:6px 0 26px}
+.count{color:var(--neon);margin-bottom:6px}
+.title{font-family:var(--f-display);font-size:clamp(44px,8.2vw,128px);line-height:.92;color:var(--neon);text-transform:uppercase}
+.title.in,.kick.in{animation:rise .6s cubic-bezier(.2,.7,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.foot-r{display:grid;gap:14px;justify-items:end;text-align:right;max-width:340px}
+.kick{color:var(--fg)}
+.ctrl{display:flex;gap:10px;align-items:center}
+.ctrl button{width:46px;height:46px;border:1px solid var(--neon);border-radius:50%;color:var(--neon);font-size:17px;transition:.25s}
+.ctrl button:hover{background:var(--neon);color:#000}
+.intro{color:var(--grey);max-width:520px;margin-top:14px}
+
+/* marquee strip */
+.strip{margin:clamp(70px,9vw,140px) 0;background:var(--neon);color:#000;overflow:hidden;white-space:nowrap}
+.strip .track{display:inline-block;animation:marq 32s linear infinite;font-family:var(--f-display);font-size:clamp(14px,2.3vw,34px);line-height:1;padding:8px 0;text-transform:uppercase}
+.strip .track span{margin:0 .5em}
+.strip .track i{font-style:normal;opacity:.55}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:96px var(--pad) 40px}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:14px;margin-bottom:34px;color:var(--neon)}
+.big{font-family:var(--f-display);text-transform:uppercase;line-height:.9;font-size:clamp(56px,11vw,190px)}
+.outline{color:transparent;-webkit-text-stroke:1px var(--neon)}
+
+/* index */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:70px 1.4fr 1fr 150px;gap:16px;align-items:center;padding:20px 8px;border-bottom:1px solid var(--line);width:100%;text-align:left;transition:background .2s,color .2s,padding .3s}
+.row .n{color:var(--grey)}
+.row .t{font-family:var(--f-display);font-size:clamp(28px,4.2vw,64px);line-height:1;text-transform:uppercase}
+.row .a{text-align:right;color:var(--grey)}
+.row:hover{background:var(--neon);color:#000;padding-left:20px}
+.row:hover .n,.row:hover .a{color:#000}
+
+/* about */
+.about{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.about .l{grid-column:1/8}
+.about .r{grid-column:8/13;align-self:end}
+.about p{max-width:46ch}
+.about p+p{margin-top:14px}
+.lists{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:70px}
+.lists h4{color:var(--neon);font-weight:500;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+.lists li{list-style:none;display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid var(--line)}
+.lists li span:last-child{color:var(--grey);text-align:right}
+.lists .note{margin-top:14px;color:var(--grey)}
+
+/* contact */
+.contact{padding-bottom:50px}
+.contact .mail{display:inline-block;margin-top:34px;font-family:var(--f-display);font-size:clamp(28px,6vw,96px);text-transform:uppercase;line-height:1;border-bottom:3px solid var(--neon);color:var(--neon);transition:.25s}
+.contact .mail:hover{background:var(--neon);color:#000}
+.links{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:34px}
+.links a:hover{color:var(--neon)}
+.foot{display:flex;justify-content:space-between;gap:16px;padding:22px var(--pad) 30px;border-top:1px solid var(--line);color:var(--grey)}
+
+/* project overlay */
+.overlay{position:fixed;inset:0;z-index:100;background:var(--bg);
+  clip-path:circle(0px at var(--cx,50%) var(--cy,50%));visibility:hidden;
+  transition:clip-path .9s cubic-bezier(.7,0,.2,1),visibility 0s .9s}
+.overlay.open{clip-path:circle(160vmax at var(--cx,50%) var(--cy,50%));visibility:visible;transition:clip-path .95s cubic-bezier(.7,0,.2,1),visibility 0s 0s}
+.ov-scroll{height:100%;overflow-y:auto;overscroll-behavior:contain}
+.ov-close{position:fixed;top:16px;right:var(--pad);z-index:5;background:var(--bg);border:1px solid var(--neon);color:var(--neon);padding:10px 18px;border-radius:40px;letter-spacing:.09em;text-transform:uppercase;font-size:11px;transition:.25s}
+.ov-close:hover{background:var(--neon);color:#000}
+.ov-head{background:var(--neon);color:#000;padding:84px var(--pad) 30px}
+.ov-meta{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px}
+.ov-head h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;line-height:.88;font-size:clamp(60px,14vw,240px);overflow-wrap:anywhere}
+.ov-intro{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:44px var(--pad) 10px}
+.ov-intro .lead{grid-column:1/9;font-size:clamp(15px,1.5vw,20px);line-height:1.55}
+.ov-intro .cred{grid-column:9/13;color:var(--grey)}
+.facts{margin-top:14px}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)}
+.facts dd{color:var(--fg);text-align:right}
+.rowlist{list-style:none;max-width:900px;margin-top:6px}
+.rowlist li{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid var(--line)}
+.rowlist li span:last-child{color:var(--grey);text-align:right}
+.blk{padding:50px var(--pad) 0}
+.blk h3{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(32px,5vw,76px);line-height:1;color:var(--neon);margin-bottom:12px}
+.blk p{max-width:62ch;color:var(--fg);margin-bottom:22px}
+.blk .when{color:var(--neon);margin:18px 0 8px}
+.embeds{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));margin-top:10px}
+.embeds.one{grid-template-columns:1fr}
+.vid{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
+.vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.pic{border:1px solid var(--line);background:#111}
+.pic img{width:100%}
+.btn{display:inline-block;border:1px solid var(--neon);color:var(--neon);padding:12px 22px;border-radius:40px;text-transform:uppercase;letter-spacing:.09em;font-size:11px;transition:.25s;margin-top:6px}
+.btn:hover{background:var(--neon);color:#000}
+.ov-foot{display:grid;grid-template-columns:1fr 1fr;margin-top:90px;border-top:1px solid var(--line)}
+.ov-foot button{padding:34px var(--pad);text-align:left;transition:.25s;border-right:1px solid var(--line)}
+.ov-foot button:last-child{text-align:right;border-right:0}
+.ov-foot button:hover{background:var(--neon);color:#000}
+.ov-foot b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(28px,4.4vw,66px);line-height:1;text-transform:uppercase;margin-top:6px}
+
+
+:root{--paper:#f1f1ec}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px)}
+.split h3{font-size:clamp(28px,3.6vw,52px)}
+.gal{display:grid;gap:18px;grid-template-columns:repeat(var(--c,3),1fr);margin-top:14px}
+.gal figure{margin:0;min-width:0}
+.gal .fm{overflow:hidden;background:#111;border:1px solid var(--line)}
+.gal .fm img,.gal .fm video{display:block;width:100%;height:auto}
+.gal.light .fm{background:var(--paper);border:0;padding:clamp(10px,2.4vw,34px)}
+.gal figcaption{margin-top:10px;display:grid;gap:2px}
+.gal figcaption b{font-weight:700}
+.gal figcaption span{color:var(--grey)}
+.gal figcaption em{font-style:normal;color:var(--neon)}
+.bimg{display:block;width:100%;height:auto;margin:14px 0 26px}
+.bimg.awards{max-width:1300px;opacity:.92}
+.panda{display:block;height:84px;width:84px;margin-bottom:12px}
+.bimg.cut{width:min(100%,1000px);margin:clamp(30px,5vw,70px) auto}
+.bimg.cut.small{width:min(100%,560px)}
+@media (max-width:820px){
+  .split{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .gal.scroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px}
+  .gal.scroll figure{flex:0 0 62%;scroll-snap-align:start}
+}
+@media (max-width:820px){
+  :root{--pad:16px}
+  .top{grid-template-columns:1fr auto}
+  .top .mid{display:none}
+  .top nav{gap:14px}
+  .hero-foot{grid-template-columns:1fr}
+  .foot-r{justify-items:start;text-align:left}
+  .corner.tr,.corner.tl{display:none}
+  .row{grid-template-columns:44px 1fr 90px}
+  .row .c{display:none}
+  .about .l,.about .r{grid-column:1/13}
+  .lists{grid-template-columns:1fr;gap:34px}
+  .ov-intro .lead,.ov-intro .cred{grid-column:1/13}
+  .ov-foot{grid-template-columns:1fr}
+  .ov-foot button{border-right:0;border-bottom:1px solid var(--line);text-align:left!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .disc.active .spin,.strip .track{animation:none}
+  .overlay,.overlay.open{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#work">Gigi Tachinardi<sup>®</sup><small class="s">Creative Director based in Madrid<br>Brand, Film, Print, Data &amp; AI</small><small class="s go">Click the disc to enter ↗</small></a>
+  <nav class="s">
+    <a href="#work">Work</a><a href="#index">Index</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="work">
+  <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Selected projects"></div>
+
+  <div class="hero-foot">
+    <div>
+      <h1 class="title" id="ttl">WWF Climate Realism</h1>
+    </div>
+    <div class="foot-r">
+      <div class="kick s" id="kick"></div>
+      <div class="ctrl">
+        <button id="prev" aria-label="Previous project">←</button>
+        <button id="next" aria-label="Next project">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section class="sec" id="index">
+  <div class="sec-h s"><span>Index</span><span id="idxCount"></span></div>
+  <div class="rows" id="rows"></div>
+</section>
+
+<section class="sec" id="about">
+  <div class="sec-h s"><span>About</span><span></span></div>
+  <div class="about">
+    <div class="l"><h2 class="big">Hi, I'm <span class="outline">Gigi.</span></h2></div>
+    <div class="r">
+      <!-- DRAFT COPY: replace with Gigi's own words -->
+      <p>Creative Director from São Paulo, living in Madrid. Graphic design and visual communication background (2011), with years inside agencies in Germany and Brazil.</p>
+      <p>Her work moves between TV commercials, brand campaigns, print, social, data storytelling and, lately, AI-driven film and experiences.</p>
+    </div>
+  </div>
+
+  <div class="lists s">
+    <div>
+      <h4>Experience</h4>
+      <ul>
+        <li><span>Leo Burnett</span><span>Germany</span></li>
+        <li><span>McCann Health</span><span>Germany</span></li>
+        <li><span>Leo Burnett</span><span>Brasil</span></li>
+        <li><span>Mandarin</span><span>Brasil</span></li>
+        <li><span>Eugenio</span><span>Brasil</span></li>
+        <li><span>Editora Globo</span><span>Brasil</span></li>
+      </ul>
+      <h4 style="margin-top:34px">Jury</h4>
+      <ul>
+        <li><span>The Young Ones</span><span>2026</span></li>
+        <li><span>New York Festivals</span><span>2023 / 2025</span></li>
+        <li><span>LUUM Awards</span><span>2023</span></li>
+        <li><span>Le Book Connections Berlin</span><span>2023</span></li>
+        <li><span>The ADFORUM PHNX</span><span>2020 / 22 / 24</span></li>
+        <li><span>Mobius Awards</span><span>2020</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Recognitions</h4>
+      <ul>
+        <li><span>Cannes Lions</span><span>1× Bronze · 10× Shortlist</span></li>
+        <li><span>Clio</span><span>1× Gold · 3× Silver · 1× Bronze</span></li>
+        <li><span>Webby</span><span>3× Winner</span></li>
+        <li><span>The One Show</span><span>1× Gold · 2× Bronze · 6× Finalist</span></li>
+        <li><span>ADC Global</span><span>1× Gold · 3× Silver · 1× Merit</span></li>
+        <li><span>Epica Awards</span><span>3× Gold · 1× Silver</span></li>
+        <li><span>Eurobest</span><span>3× Silver</span></li>
+        <li><span>LIA</span><span>1× Silver</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4>&nbsp;</h4>
+      <ul>
+        <li><span>New York Festivals 2024</span><span>2× Gold · 2× Finalist</span></li>
+        <li><span>ADC Germany</span><span>6× Bronze</span></li>
+        <li><span>Max Awards</span><span>2× Gold</span></li>
+        <li><span>Spotlight Festival</span><span>1× Bronze</span></li>
+      </ul>
+      <p class="note">Mostly for WWF Climate Realism.</p>
+      <h4 style="margin-top:34px">McDonald’s Stages</h4>
+      <ul>
+        <li><span>New York Festivals 2020</span><span>Finalist</span></li>
+        <li><span>Lürzer’s Archive</span><span>Vol. 06 — 2019</span></li>
+        <li><span>200 Best Digital Artists</span><span>2021</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="sec-h s"><span>Contact</span><span></span></div>
+  <h2 class="big">Let's <span class="outline">talk.</span></h2>
+  <a class="mail" href="mailto:giannatcp@gmail.com">giannatcp@gmail.com</a>
+  <div class="links s">
+    <a href="tel:+491762279279">+49 176 227927937</a>
+    <a href="tel:+34682672330">+34 682 672 330</a>
+    <a href="https://www.instagram.com/gigitachinardi/" target="_blank" rel="noopener">Instagram ↗</a>
+    <a href="https://www.linkedin.com/in/giannatachinardi/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://youtu.be/UsVfElI-7oo" target="_blank" rel="noopener">YouTube ↗</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot s">
+  <span>© Gigi Tachinardi MMXXVI</span>
+  <span id="foot-time">Madrid</span>
+</footer>
+
+<div class="overlay" id="ov" aria-hidden="true" role="dialog" aria-label="Project">
+  <div class="ov-scroll" id="ovScroll">
+    <button class="ov-close" id="ovClose">← Back to work</button>
+    <div id="ovBody"></div>
+  </div>
+</div>
+
+<script>
+/* ============ DATA ============
+   Stills are hotlinked from the current Cargo site for now.
+   Before cancelling Cargo, download originals and point `img` to local files (e.g. /img/wwf.jpg).
+*/
+const CARGO = 'https://freight.cargo.site/w/1200/i/';
+const ALL = [
+  {
+    id:'wwf', title:'WWF Climate Realism', ring:'WWF Climate Realism', cat:'Exhibition · AI · Data',
+    img:'img/wwf.jpg',
+    lead:'Using AI to bring climate data to life, through the eyes of famous painters.',
+    logo:'img/wf-logo.png',
+    facts:[['Client','WWF'],['Format','Exhibition · Web · Digital assets'],['Venue','POP Kudamm, Berlin'],['Scale','~2000 AI-generated images']],
+    blocks:[
+      {embeds:[{t:'yt',id:'geZBvWf6NLU'}], one:true},
+      {split:[
+        {h:'The idea', p:'The WWF Climate Realism Exhibition combines the latest local data from climate research with custom-built AI pipelines to send famous landscape paintings from art history into their possible climate futures. In nearly <b>2000 AI-generated individual images</b>, the future effects of climate change are modeled for each painting’s place of origin and interpreted in the style of the artists.'},
+        {h:'The result', p:'A collaboration between art, technology and science, and a new way of looking at climate scenarios. With its web experience, a physical exhibition and digital assets, the exhibition achieved a new kind of attention, deeper discussions and an increased urge to act.',
+         link:{href:'https://www.wwf-climaterealism.com/',label:'Visit the digital exhibition'}}
+      ]},
+      {gallery:{cols:3, items:[
+        {vid:'img/wf-monet.mp4',poster:'img/wf-monet.jpg',cap:['Claude Monet','The Japanese Bridge','1889']},
+        {vid:'img/wf-pontoise.mp4',poster:'img/wf-pontoise.jpg',cap:['Camille Pissarro','Landscape at Les Pâtis, Pontoise','1868']},
+        {vid:'img/wf-franeker.mp4',poster:'img/wf-franeker.jpg',cap:['Tina Blau','Scene of Franeker','1908']},
+        {vid:'img/wf-vangogh.mp4',poster:'img/wf-vangogh.jpg',cap:['Vincent van Gogh','Wheat Field with Cypresses','1889']},
+        {vid:'img/wf-tahiti.mp4',poster:'img/wf-tahiti.jpg',cap:['Paul Gauguin','Tahitian Landscape','1891']},
+        {vid:'img/wf-bougival.mp4',poster:'img/wf-bougival.jpg',cap:['Camille Pissarro','The Seine at Bougival','1870']}
+      ]}},
+      {image:{src:'img/wf-laptop.webp',cls:'cut',alt:'The WWF Climate Realism website on a laptop'}},
+      {gallery:{cols:3, items:[
+        {img:'img/wf-deg-low.jpg',alt:'Low emissions scenario',cap:['Low emissions','Until the year 2100','+ approx. 0–5 days of extreme heat']},
+        {img:'img/wf-deg-mid.jpg',alt:'Medium emissions scenario',cap:['Medium emissions','Until the year 2100','+ approx. 10–20 days of extreme heat']},
+        {img:'img/wf-deg-high.jpg',alt:'High emissions scenario',cap:['High emissions','Until the year 2100','+ approx. 20–40 days of extreme heat']}
+      ]}},
+      {image:{src:'img/wf-frame.webp',cls:'cut small',alt:'A framed climate future painting'}},
+      {gallery:{cols:5, items:[
+        {img:'img/wf-inv-iceberg.jpg',alt:'Invitation: iceberg'},
+        {img:'img/wf-inv-tahiti.jpg',alt:'Invitation: Tahitian landscape'},
+        {img:'img/wf-inv-monet.jpg',alt:'Invitation: Japanese bridge'},
+        {img:'img/wf-inv-pontoise.jpg',alt:'Invitation: Pontoise hills'},
+        {img:'img/wf-inv-vangogh.jpg',alt:'Invitation: Wheat field fire'}
+      ]}},
+      {image:{src:'img/wf-awards.png',cls:'awards',alt:'Award logos'}, rows:[
+        ['Cannes Lions','1× Bronze (Digital Craft) · 10× Shortlist'],
+        ['Clio','1× Gold · 3× Silver · 1× Bronze'],
+        ['Webby','3× Winner'],
+        ['The One Show','1× Gold · 2× Bronze · 6× Finalist'],
+        ['ADC Global','1× Gold · 3× Silver · 1× Merit'],
+        ['Epica Awards','3× Gold · 1× Silver'],
+        ['Eurobest','3× Silver'],
+        ['ADC Germany','6× Bronze'],
+        ['Max Awards','2× Gold'],
+        ['LIA','1× Silver'],
+        ['Spotlight Festival','1× Bronze']
+      ]}
+    ]
+  },
+  {
+    id:'ai', title:'AI Films', ring:'AI Films', cat:'Short film · Music video',
+    img: CARGO+'7863199b04eeea3b9409c9a939bf0b6b0be6ce99d9e95f70afd188a5f219ca0c/POSTER1.jpg',
+    lead:'Experiments in how far AI can go as a filmmaking tool.',
+    cred:'Created with AI, together with Nicolau Attallah, at NØTFØRYØU.LAB.',
+    blocks:[
+      {embeds:[{t:'mp4',src:'img/ai.mp4'}], one:true},
+      {h:'The Fairy Dealer', p:'Short film.', embeds:[{t:'yt',id:'1OevusXNbx0'}], one:true,
+       link:{href:'https://nicoattallah.com/notforyoulab/',label:'NØTFØRYØU.LAB'}},
+      {h:'Sanctus IV', p:'Trailer. An experiment imagining how far AI might go, even to the point of replacing real people.', embeds:[{t:'yt',id:'IZGaI2hiB-I'}], one:true},
+      {h:'Silicon Soul', p:'Music video created entirely with AI, featuring an AI rapper in a world inspired by algorithms, data flows and digital consciousness.', embeds:[{t:'yt',id:'1JEZWL0bs68'}], one:true},
+      {h:'The Last Mirage', p:'Short film. A hot day, no shades, a long walk and the hope to reach the last oasis.', embeds:[{t:'yt',id:'uqwXYZBBa5I'}], one:true}
+    ]
+  },
+  {
+    id:'kinder', title:'Kinder', ring:'Kinder', cat:'Brand campaigns · TVC',
+    img: CARGO+'f2c7771bd52fa03b69af3505834c3adc2155018ff1a256fde5f8d2d843b0eedd/BG_KINDER.jpg',
+    lead:'Brand, social and promo films for Kinder.', cred:'',
+    blocks:[
+      {h:'Kinder Pingui', p:'Brand campaign. TVC for Kinder Pingui Germany with our star Ole the Penguin, reminding people of a well-deserved time-out.', embeds:[{t:'vimeo',id:'753753272'}], one:true},
+      {h:'Kinder BSR', p:'Social media campaign about Kinder’s brand social responsibilities. Each film targets one specific topic in a playful but informative way, and was adapted into social formats (size and length) and several languages for worldwide reach.',
+       embeds:[{t:'vimeo',id:'833953784'},{t:'vimeo',id:'833951865'},{t:'vimeo',id:'833951886'},{t:'vimeo',id:'833955502'}]},
+      {h:'Kinder Joy', p:'Promo TVC. Short animated promo for the limited edition of Kinder Joy in partnership with Jurassic World.', embeds:[{t:'vimeo',id:'551845755'}], one:true}
+    ]
+  },
+  {
+    id:'ferrero', title:'Ferrero Rocher', ring:'Ferrero', cat:'TVC · Print',
+    img: CARGO+'cd43c55fa2007f9430bba862426b9d44b17fad50208fdddf355d4c90d7106fd4/BG.jpg',
+    lead:'Campaign films for Ferrero Rocher and the Ferrero pralines collection.',
+    cred:'“Ignite the gold in you”: directed by Hans Emmanuel. Choreography by Olivier Casamayou. Produced by Embassy of Dreams.',
+    blocks:[
+      {h:'Ignite the gold in you', p:'TVC created for the new Ferrero Rocher campaign running in Germany and Italy.', embeds:[{t:'vimeo',id:'672718959'}], one:true},
+      {h:'Ferrero Reintro', p:'“Verlieb Dich Frisch.” Visual TVC campaign announcing the comeback of the Ferrero pralines collection after the summer break.',
+       when:'2023', embeds:[{t:'yt',id:'VidrE--r9AQ'},{t:'yt',id:'zNJcHyiyJVA'},{t:'yt',id:'P4DIVPlWuxg'}]},
+      {when:'2022', embeds:[{t:'yt',id:'0Wt4-aWv6Lo'},{t:'yt',id:'Oc03PtLl9JE'},{t:'yt',id:'Gia-Llqycn8'}]},
+      {when:'2021', embeds:[{t:'vimeo',id:'629905946'},{t:'vimeo',id:'629905665'},{t:'vimeo',id:'629905842'}]}
+    ]
+  },
+  {
+    id:'mcdonalds', title:'McDonald’s Stages', ring:'McDonald’s Stages', cat:'Posters · Print',
+    img: CARGO+'6cbe37fb9c8742c3cdcef731d1807be3cff0733e5cc185e402f884eae6bcfe2d/Bus-Shelter-Poster-Mockup-PSD-Template.jpg',
+    lead:'New Signature Burger collection. A series of three posters crafted to follow the new collection of premium burgers for McDonald’s. To translate the premiumness of the Signature collection, the idea was to make the burgers the star of the show, or better, the show itself.',
+    cred:'New York Festivals 2020, Finalist. Lürzer’s Archive Vol. 06-2019. Lürzer’s Archive, 200 Best Digital Artists Worldwide, 2021.',
+    blocks:[
+      {embeds:[{t:'img',src:'img/mcdonalds.jpg'}], one:true},
+      {p:'<span class="dim">Add the three poster files here when exported from the old site.</span>'}
+    ]
+  },
+  {
+    id:'unfollow', title:'Unfollow Award', ring:'Unfollow Award', cat:'Branding · Logo',
+    img: 'https://freight.cargo.site/w/1080/i/0707b63a1787fcf81f6e4840bb48afe3da23d226271bdcab27cfd9257385a6e8/LINES_3.gif',
+    lead:'Logo concept and development. The Unfollow Award was created to honor those who don’t follow the rules, the ones who trace their own path, the trend-setters and the real people who dare to make a difference.',
+    cred:'',
+    blocks:[
+      {embeds:[{t:'img',src:'https://freight.cargo.site/w/1080/i/0707b63a1787fcf81f6e4840bb48afe3da23d226271bdcab27cfd9257385a6e8/LINES_3.gif'}], one:true},
+      {p:'<span class="dim">Add the rest of the identity files here when exported from the old site.</span>'}
+    ]
+  }
+];
+
+// Vinyl order and stills. `vid` (optional) is a short muted loop that plays only on the centre disc.
+const STILLS = {
+  ai:{img:'img/ai-still.jpg'},
+  kinder:{img:'img/kinder.jpg'},
+  wwf:{img:'img/wwf.jpg'},
+  ferrero:{img:'img/ferrero.jpg'},
+  mcdonalds:{img:'img/mcdonalds.jpg'}
+};
+const PROJECTS = ['wwf','ai','mcdonalds','ferrero','kinder'].map(id=>Object.assign(ALL.find(p=>p.id===id), STILLS[id]));
+
+// Rest of the archive: links to the current site until each gets its own page here.
+const OLD = 'https://gigitachinardi.com/';
+const EXTRA = [
+  {title:'Fiat Freemont', href:OLD+'FIAT_REAR'},
+  {title:'Dior TikTok', href:OLD+'Dior-Backstage'},
+  {title:'Chris and Crunch.ai', href:OLD+'Chris-and-Crunch'},
+  {title:'Lidl', href:OLD+'LIDL'},
+  {title:'Power to the Pea', href:OLD+'Endori'},
+  {title:'Head & Shoulders', href:OLD+'H-S'},
+  {title:'Unfollow Award', href:OLD+'UNFOLLOW'}
+];
+
+/* ============ HELPERS ============ */
+const $ = s => document.querySelector(s);
+const pad = n => String(n).padStart(2,'0');
+const n = PROJECTS.length;
+let cur = 0;
+
+/* ============ VINYL STAGE ============ */
+const stage = $('#stage');
+function ringText(p){
+  const base = (p.ring||p.title).toUpperCase()+' • '+p.cat.toUpperCase()+' • ';
+  let s=''; while(s.length<84) s+=base; return s;
+}
+stage.innerHTML = PROJECTS.map((p,i)=>`
+  <button class="disc" data-i="${i}" aria-label="${p.title}">
+    <div class="spin">
+      <img src="${p.img}" alt="" loading="eager" onerror="this.style.display='none'">
+      ${p.vid?`<video src="${p.vid}" poster="${p.img}" muted loop playsinline preload="auto"></video>`:''}
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <defs><path id="r${i}" d="M200,200 m-176,0 a176,176 0 1,1 352,0 a176,176 0 1,1 -352,0"/></defs>
+        <text><textPath href="#r${i}" textLength="1086" lengthAdjust="spacing">${ringText(p)}</textPath></text>
+      </svg>
+    </div>
+    <div class="enter">ENTER</div>
+  </button>`).join('');
+stage.insertAdjacentHTML('beforeend','<div class="gigi" aria-hidden="true">GIGI</div>');
+const discs = [...stage.querySelectorAll('.disc')];
+
+function layout(){
+  const r = stage.getBoundingClientRect();
+  const D = Math.max(220, Math.min(r.height*0.94, r.width*0.64));
+  stage.style.setProperty('--D', D+'px');
+  discs.forEach((el,i)=>{
+    let d = i-cur;
+    if(d>n/2) d-=n; if(d<-n/2) d+=n;
+    const a = Math.abs(d), sg = Math.sign(d);
+    const scale = a===0?1:a===1?0.78:0.5;
+    const x = a===0?0:a===1?sg*D*0.74:sg*D*1.1;
+    el.style.width = el.style.height = D+'px';
+    el.style.transform = `translate(-50%,-50%) translateX(${x}px) scale(${scale})`;
+    el.style.opacity = a<=1?1:0;
+    el.style.zIndex = 10-a;
+    el.style.pointerEvents = a<=1?'auto':'none';
+    el.tabIndex = a<=1?0:-1;
+    el.classList.toggle('active', a===0);
+    el.setAttribute('aria-current', a===0?'true':'false');
+    const v = el.querySelector('video');
+    if(v){ if(a===0){ const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } else v.pause(); }
+  });
+}
+function restart(el){el.classList.remove('in');void el.offsetWidth;el.classList.add('in')}
+function setCur(i){
+  cur = (i+n)%n;
+  layout();
+  const p = PROJECTS[cur];
+  $('#ttl').textContent = p.title;
+  $('#kick').textContent = p.cat;
+  restart($('#ttl')); restart($('#kick'));
+}
+$('#prev').onclick = ()=>setCur(cur-1);
+$('#next').onclick = ()=>setCur(cur+1);
+
+let dragX=null, moved=false;
+stage.addEventListener('pointerdown',e=>{dragX=e.clientX;moved=false});
+stage.addEventListener('pointermove',e=>{if(dragX!==null&&Math.abs(e.clientX-dragX)>12)moved=true});
+stage.addEventListener('pointerup',e=>{
+  if(dragX===null) return;
+  const dx = e.clientX-dragX; dragX=null;
+  if(Math.abs(dx)>48){ setCur(cur+(dx<0?1:-1)); }
+});
+stage.addEventListener('pointercancel',()=>{dragX=null});
+let wheelLock=false;
+stage.addEventListener('wheel',e=>{
+  if(Math.abs(e.deltaX)>Math.abs(e.deltaY)&&Math.abs(e.deltaX)>20&&!wheelLock){
+    wheelLock=true; setCur(cur+(e.deltaX>0?1:-1)); setTimeout(()=>wheelLock=false,700);
+  }
+},{passive:true});
+discs.forEach(el=>el.addEventListener('click',()=>{
+  if(moved){moved=false;return}
+  const i=+el.dataset.i;
+  if(i===cur) go(PROJECTS[i].id); else setCur(i);
+}));
+window.addEventListener('resize',layout);
+
+/* ============ MARQUEE ============ */
+const words = ['Creative Direction','Art Direction','Brand','Film','Print','Data','AI'];
+const run = words.map(w=>`<span>${w}</span><i>✦</i>`).join('');
+$('#track').innerHTML = run+run+run+run;
+
+/* ============ INDEX ============ */
+const rows = [
+  ...PROJECTS.map((p,i)=>`<button class="row s" data-go="${p.id}"><span class="n">${pad(i+1)}</span><span class="t">${p.title}</span><span class="c">${p.cat}</span><span class="a">Open ↗</span></button>`),
+  ...EXTRA.map((p,i)=>`<a class="row s" href="${p.href}" target="_blank" rel="noopener"><span class="n">${pad(PROJECTS.length+i+1)}</span><span class="t">${p.title}</span><span class="c">Archive</span><span class="a">Old site ↗</span></a>`)
+];
+$('#rows').innerHTML = rows.join('');
+$('#idxCount').textContent = pad(PROJECTS.length+EXTRA.length)+' projects';
+
+/* ============ PROJECT OVERLAY ============ */
+const ov = $('#ov'), ovBody = $('#ovBody'), ovScroll = $('#ovScroll');
+let observer = null;
+
+function embedHTML(e){
+  if(e.t==='yt')   return `<div class="vid"><iframe data-src="https://www.youtube-nocookie.com/embed/${e.id}" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>`;
+  if(e.t==='vimeo')return `<div class="vid"><iframe data-src="https://player.vimeo.com/video/${e.id}?badge=0&autopause=0" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+  if(e.t==='mp4')  return `<div class="vid"><video src="${e.src}" autoplay muted loop playsinline controls></video></div>`;
+  if(e.t==='img')  return `<div class="pic"><img src="${e.src}" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'"></div>`;
+  return '';
+}
+function galleryHTML(g){
+  const items = g.items.map(it=>{
+    const media = it.vid
+      ? `<video data-vsrc="${it.vid}" poster="${it.poster||''}" muted loop playsinline preload="none"></video>`
+      : `<img src="${it.img}" alt="${it.alt||''}" loading="lazy">`;
+    const c = it.cap;
+    const cap = c ? `<figcaption class="s"><b>${c[0]}</b>${c[1]?`<span>${c[1]}</span>`:''}${c[2]?`<em>${c[2]}</em>`:''}</figcaption>` : '';
+    return `<figure><div class="fm">${media}</div>${cap}</figure>`;
+  }).join('');
+  return `<div class="gal ${g.light?'light':''} ${g.scroll?'scroll':''}" style="--c:${g.cols||3}">${items}</div>`;
+}
+function projectHTML(idx){
+  const p = PROJECTS[idx], prev = PROJECTS[(idx-1+n)%n], next = PROJECTS[(idx+1)%n];
+  const blocks = p.blocks.map(b=>`
+    <section class="blk">
+      ${b.when?`<div class="when s">${b.when}</div>`:''}
+      ${b.h?`<h3>${b.h}</h3>`:''}
+      ${b.p?`<p>${b.p}</p>`:''}
+      ${b.split?`<div class="split">${b.split.map(s=>`<div>${s.h?`<h3>${s.h}</h3>`:''}<p>${s.p}</p>${s.link?`<a class="btn" href="${s.link.href}" target="_blank" rel="noopener">${s.link.label} ↗</a>`:''}</div>`).join('')}</div>`:''}
+      ${b.image?`<img class="bimg ${b.image.cls||''}" src="${b.image.src}" alt="${b.image.alt||''}">`:''}
+      ${b.gallery?galleryHTML(b.gallery):''}
+      ${b.rows?`<ul class="rowlist s">${b.rows.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>`:''}
+      ${b.embeds?`<div class="embeds ${b.one?'one':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
+      ${b.link?`<a class="btn" href="${b.link.href}" target="_blank" rel="noopener">${b.link.label} ↗</a>`:''}
+    </section>`).join('');
+  return `
+    <header class="ov-head">
+      <div class="ov-meta s"><span>(${pad(idx+1)}) / ${pad(n)}</span><span>${p.cat}</span></div>
+      <h2>${p.title}</h2>
+    </header>
+    <div class="ov-intro">
+      <p class="lead">${p.lead}</p>
+      ${(p.cred||p.facts)?`<div class="cred s">${p.logo?`<img class="panda" src="${p.logo}" alt="">`:''}${p.cred?`<p>${p.cred}</p>`:''}${p.facts?`<dl class="facts">${p.facts.map(f=>`<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`).join('')}</dl>`:''}</div>`:''}
+    </div>
+    ${blocks}
+    <div class="ov-foot">
+      <button data-go="${prev.id}"><span class="s dim">← Previous</span><b>${prev.title}</b></button>
+      <button data-go="${next.id}"><span class="s dim">Next →</span><b>${next.title}</b></button>
+    </div>`;
+}
+function lazyEmbeds(){
+  if(observer) observer.disconnect();
+  observer = new IntersectionObserver(es=>es.forEach(en=>{
+    const f = en.target;
+    if(f.tagName==='VIDEO'){
+      if(en.isIntersecting){
+        if(f.dataset.vsrc){ f.src=f.dataset.vsrc; delete f.dataset.vsrc; }
+        const pr=f.play(); if(pr&&pr.catch) pr.catch(()=>{});
+      } else f.pause();
+      return;
+    }
+    if(en.isIntersecting){
+      if(f.dataset.src){ f.src = f.dataset.src; delete f.dataset.src; }
+      observer.unobserve(f);
+    }
+  }),{root:ovScroll,rootMargin:'300px 0px'});
+  ovBody.querySelectorAll('iframe[data-src], video[data-vsrc]').forEach(f=>observer.observe(f));
+}
+function openProject(id){
+  const idx = PROJECTS.findIndex(p=>p.id===id);
+  if(idx<0) return;
+  const wasOpen = ov.classList.contains('open');
+  if(!wasOpen){
+    const active = discs[idx===cur?cur:cur];
+    const r = (idx===cur?active:discs[cur]).getBoundingClientRect();
+    const onScreen = r.bottom>0 && r.top<innerHeight;
+    ov.style.setProperty('--cx', (onScreen? r.left+r.width/2 : innerWidth/2)+'px');
+    ov.style.setProperty('--cy', (onScreen? r.top+r.height/2 : innerHeight/2)+'px');
+  }
+  if(idx!==cur) { cur = idx; layout(); setCur(idx); }
+  ovBody.innerHTML = projectHTML(idx);
+  ovScroll.scrollTop = 0;
+  lazyEmbeds();
+  ov.classList.add('open');
+  ov.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  document.title = PROJECTS[idx].title+' — Gigi Tachinardi';
+}
+function closeProject(){
+  ov.classList.remove('open');
+  ov.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+  document.title = 'Gigi Tachinardi — Creative Director';
+  if(observer) observer.disconnect();
+  setTimeout(()=>{ if(!ov.classList.contains('open')) ovBody.innerHTML=''; }, 1000);
+}
+function route(){
+  const m = location.hash.match(/^#\/(.+)$/);
+  if(m && PROJECTS.some(p=>p.id===m[1])) openProject(m[1]); else if(ov.classList.contains('open')) closeProject();
+}
+function go(id){
+  try{ history.pushState(null,'', id ? '#/'+id : location.pathname+location.search); }catch(e){}
+  if(id) openProject(id); else closeProject();
+}
+window.addEventListener('popstate',route);
+$('#ovClose').onclick = ()=>go(null);
+document.addEventListener('click',e=>{
+  const t = e.target.closest('[data-go]');
+  if(t){ e.preventDefault(); go(t.dataset.go); }
+});
+document.addEventListener('keydown',e=>{
+  if(ov.classList.contains('open')){ if(e.key==='Escape') go(null); return; }
+  if(e.key==='ArrowRight') setCur(cur+1);
+  if(e.key==='ArrowLeft') setCur(cur-1);
+});
+
+/* ============ CLOCK ============ */
+function tick(){
+  const t = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date());
+  $('#foot-time').textContent = 'Madrid / '+t;
+}
+tick(); setInterval(tick,20000);
+
+/* ============ INIT ============ */
+setCur(0);
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+requestAnimationFrame(()=>requestAnimationFrame(()=>stage.classList.add('ready')));
+route();
+</script>
+</body>
+</html>
