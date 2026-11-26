@@ -474,13 +474,26 @@ const ALL = [
   {
     id:'mcdonalds', title:'McDonald’s Stages', ring:'McDonald’s Stages', cat:'Posters · Print',
     img: CARGO+'6cbe37fb9c8742c3cdcef731d1807be3cff0733e5cc185e402f884eae6bcfe2d/Bus-Shelter-Poster-Mockup-PSD-Template.jpg',
-    lead:'New Signature Burger collection. A series of three posters crafted to follow the new collection of premium burgers for McDonald’s. To translate the premiumness of the Signature collection, the idea was to make the burgers the star of the show, or better, the show itself.',
-    cred:'New York Festivals 2020, Finalist. Lürzer’s Archive Vol. 06-2019. Lürzer’s Archive, 200 Best Digital Artists Worldwide, 2021.',
+    lead:'The Signature Collection: three posters to follow the new premium burgers from McDonald’s. The idea was to make the burgers the star of the show, or better, the show itself.',
+    facts:[['Client','McDonald’s'],['Format','Posters · Print'],['Collection','The Signature Collection']],
     blocks:[
-      {embeds:[{t:'img',src:'img/mcdonalds.jpg'}], one:true},
-      {p:'<span class="dim">Add the three poster files here when exported from the old site.</span>'}
+      {image:{src:'img/mc-stage.jpg',alt:'The Signature Collection, theatre stage'}},
+      {gap:true, gallery:{cols:3, scroll:true, items:[
+        {img:'img/mc-poster1.jpg',alt:'Signature Collection poster: Composed especially for you'},
+        {img:'img/mc-poster2.jpg',alt:'Signature Collection poster: Burger in its art form'},
+        {img:'img/mc-poster3.jpg',alt:'Signature Collection poster: A symphony for your senses'}
+      ]}},
+      {gap:true, image:{src:'img/mc-mockup-grid.jpg',alt:'Signature Collection posters mockup'}},
+      {image:{src:'img/mc-bus.jpg',alt:'Signature Collection poster at a bus shelter'}},
+      {gap:true, gallery:{cols:1, cls:'mid', items:[{img:'img/mc-200best.jpg',alt:'Selected for 200 Best Digital Artists worldwide 2021/22'}]}},
+      {image:{src:'img/mc-luerzer.jpg',alt:'Lürzer’s Archive'}, rows:[
+        ['New York Festivals 2020','Finalist'],
+        ['Lürzer’s Archive Vol. 06','2019'],
+        ['200 Best Digital Artists Worldwide, Lürzer’s Archive','2021']
+      ]}
     ]
   },
+
   {
     id:'unfollow', title:'Unfollow Award', ring:'Unfollow Award', cat:'Branding · Logo',
     img: 'https://freight.cargo.site/w/1080/i/0707b63a1787fcf81f6e4840bb48afe3da23d226271bdcab27cfd9257385a6e8/LINES_3.gif',
