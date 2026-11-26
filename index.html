@@ -161,6 +161,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .blk .when{color:var(--neon);margin:18px 0 8px}
 .embeds{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));margin-top:10px}
 .embeds.one{grid-template-columns:1fr}
+.embeds.grid3{grid-template-columns:repeat(3,1fr);gap:12px;max-width:1000px}
+@media(max-width:700px){.embeds.grid3{grid-template-columns:1fr}}
 .vid{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
 .vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
 .pic{border:1px solid var(--line);background:#111}
@@ -491,6 +493,7 @@ const ALL = [
     cred:'“Ignite the gold in you”: directed by Hans Emmanuel. Choreography by Olivier Casamayou. Produced by Embassy of Dreams.',
     blocks:[
       {h:'Ignite the gold in you', p:'TVC created for the new Ferrero Rocher campaign running in Germany and Italy.', embeds:[{t:'vimeo',id:'672718959'}], one:true},
+      {gallery:{cols:3,items:[1,2,3,4,5,6,7,8,9].map(n=>({img:'img/fe-r'+n+'.jpg'}))}},
       {h:'Mon Chéri', p:'Campaign film.', ph:'Film coming soon', gap:true},
       {h:'Ferrero Reintro', p:'“Verlieb Dich Frisch.” Campaign announcing the comeback of the Ferrero pralines collection after the summer break.', gap:true,
        pstrip:{t:'Verlieb dich frisch', items:['a1','a2','a3','a4']}},
@@ -498,9 +501,8 @@ const ALL = [
       {pstrip:{t:'Reintro', items:['c1','c2','c3']}},
       {pstrip:{t:'Lass dich frisch verzaubern', items:['d1','d2','d3','d4']}},
       {pstrip:{t:'Es ist wieder Lieblingszeit', items:['e1','e2']}},
-      {when:'2023', embeds:[{t:'yt',id:'VidrE--r9AQ'},{t:'yt',id:'zNJcHyiyJVA'},{t:'yt',id:'P4DIVPlWuxg'}], gap:true},
-      {when:'2022', embeds:[{t:'yt',id:'0Wt4-aWv6Lo'},{t:'yt',id:'Oc03PtLl9JE'},{t:'yt',id:'Gia-Llqycn8'}]},
-      {when:'2021', embeds:[{t:'vimeo',id:'629905946'},{t:'vimeo',id:'629905665'},{t:'vimeo',id:'629905842'}]}
+      {grid3:true, gap:true, embeds:[{t:'yt',id:'VidrE--r9AQ'},{t:'yt',id:'zNJcHyiyJVA'},{t:'yt',id:'P4DIVPlWuxg'},{t:'yt',id:'0Wt4-aWv6Lo'},{t:'yt',id:'Oc03PtLl9JE'},{t:'yt',id:'Gia-Llqycn8'},{t:'vimeo',id:'629905946'},{t:'vimeo',id:'629905665'},{t:'vimeo',id:'629905842'}]},
+      {h:'Ferrero Rocher Ice Cream', p:'Poster.', gap:true, gallery:{cols:1,cls:'mid',items:[{img:'img/ai-heaven.jpg'}]}}
     ]
   },
   {
@@ -700,7 +702,7 @@ function projectHTML(idx){
       ${b.ph?`<div class="ph s">${b.ph}</div>`:''}
       ${b.rows?`<ul class="rowlist s">${b.rows.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>`:''}
       ${b.trio?`<div class="trio"><figure class="fm"><video data-vsrc="${b.trio[0].vid}" poster="${b.trio[0].poster||''}" muted loop playsinline preload="none"></video></figure>${embedHTML(b.trio[1])}<figure class="fm"><video data-vsrc="${b.trio[2].vid}" poster="${b.trio[2].poster||''}" muted loop playsinline preload="none"></video></figure></div>`:''}
-      ${b.embeds?`<div class="embeds ${b.one?'one':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
+      ${b.embeds?`<div class="embeds ${b.grid3?'grid3':''} ${b.one?'one':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
       ${b.cap?`<div class="capline s"><b>${b.cap[0]}</b>${b.cap[1]?`<span>${b.cap[1]}</span>`:''}</div>`:''}
       ${b.link?`<a class="btn" href="${b.link.href}" target="_blank" rel="noopener">${b.link.label} ↗</a>`:''}
     </section>`).join('');
