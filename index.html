@@ -211,6 +211,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .gal figure{margin:0;min-width:0}
 .gal .fm{overflow:hidden;background:#111;border:1px solid var(--line)}
 .gal .fm img,.gal .fm video{display:block;width:100%;height:auto}
+.gal.six figure{grid-column:span 2}
+.gal.six figure:nth-last-child(2):nth-child(3n+1){grid-column:2/4}
+.gal.six figure:last-child:nth-child(3n+2){grid-column:4/6}
+.gal.six figure:last-child:nth-child(3n+1){grid-column:3/5}
+.gal.poster .fm img{aspect-ratio:3/4;object-fit:cover}
+@media (max-width:700px){.gal.six{grid-template-columns:1fr 1fr}.gal.six figure,.gal.six figure:nth-child(n){grid-column:auto}}
 .gal.tri figure{grid-column:span 2}
 .gal.tri figure:nth-child(4){grid-column:2/4}
 .gal.tri figure:nth-child(5){grid-column:4/6}
@@ -610,11 +616,12 @@ const ALL = [
     ]
   },
   {
-    id:'lidl', title:'Lidl', cat:'Branding · TVC',
-    lead:'Branding and a loyalty promo for Lidl.',
+    id:'lidl', title:'Lidl', cat:'Branding · Campaign',
+    lead:'Branding and campaign visuals for Lidl.',
     blocks:[
-      {h:'Lidl Disney Stacks', p:'TVC for the Lidl loyalty program in partnership with Disney. What if Disney and Lidl could merge into one universe?', embeds:[{t:'yt',id:'16eFAC-_Bvk'}], one:true},
-      {h:'Lidl Branding', p:'A branding-focused visual campaign made for the Lidl pitch, for Lidl Germany and International. A visual that takes the classic Lidl elements and colours into a new approach and a new concept.', gap:true}
+      {h:'I am Lidl', p:'A branding-focused visual campaign made for the Lidl pitch, for Lidl Germany and International. A visual that takes the classic Lidl elements and colours into a new approach and a new concept.', embeds:[{t:'mp4',src:'img/lidl-reel.mp4'}], one:true, stack:true},
+      {gallery:{cols:6,cls:'w1100 six poster',items:[{img:'img/lidl-01.jpg'},{img:'img/lidl-02.jpg'},{img:'img/lidl-03.jpg'}]}},
+      {gallery:{cols:6,cls:'w1100 six poster',items:[{img:'img/lidl-04.jpg'},{img:'img/lidl-05.jpg'},{img:'img/lidl-06.jpg'},{img:'img/lidl-07.jpg'},{img:'img/lidl-08.jpg'},{img:'img/lidl-09.jpg'},{img:'img/lidl-10.jpg'}]}}
     ]
   },
   {
