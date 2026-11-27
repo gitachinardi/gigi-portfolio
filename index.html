@@ -210,6 +210,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .gal figure{margin:0;min-width:0}
 .gal .fm{overflow:hidden;background:#111;border:1px solid var(--line)}
 .gal .fm img,.gal .fm video{display:block;width:100%;height:auto}
+.gal.light.flush .fm{padding:0;background:#fff}
 .gal.light .fm{background:var(--paper);border:0;padding:clamp(10px,2.4vw,34px)}
 .gal figcaption{margin-top:10px;display:grid;gap:2px}
 .gal figcaption b{font-weight:700}
@@ -587,12 +588,17 @@ const ALL = [
     ]
   },
   {
-    id:'chris', title:'Chris and Crunch.ai', cat:'Character design · Social',
+    id:'chris', title:'Chris and Crunch', cat:'Character design · Social',
     lead:'Character development for Hanuta, made together with Big Studios.',
     blocks:[
+      {p:'Two new mascots for Hanuta’s social media channel, each with a different personality and each representing one Hanuta product. Chris is a young, adventurous Hanuta Riegel. Crunch is a loyal, fun, classic Hanuta.',
+       link:{label:'Check them in action', href:'https://www.instagram.com/hanuta_de/'}},
       {loop:{vid:'img/chris-loop.mp4',poster:'img/chris-loop.jpg'}},
-      {h:'Chris and Crunch', p:'Two new mascots for Hanuta’s social media channel, each with a different personality and each representing one Hanuta product. Chris is a young, adventurous Hanuta Riegel. Crunch is a loyal, fun, classic Hanuta.',
-       link:{label:'Check them in action', href:'https://www.instagram.com/hanuta_de/'}}
+      {image:{src:'img/chris-cc.png',cls:'cut small',alt:'Chris and Crunch'}},
+      {gallery:{cols:2,cls:'mid flush',light:true,items:[{vid:'img/chris-tpose.mp4',poster:'',alt:'T-pose'},{img:'img/chris-concept.jpg',alt:'Concept exploration'}]}},
+      {gallery:{cols:1,cls:'w1100 flush',light:true,items:[{img:'img/chris-lineup.jpg',alt:'Character variations'}]}},
+      {gallery:{cols:2,cls:'w1100',items:[{img:'img/chris-s1.jpg'},{img:'img/chris-s2.jpg'}]}},
+      {gallery:{cols:3,cls:'w1100',items:[{img:'img/chris-s3.jpg'},{img:'img/chris-s4.jpg'},{img:'img/chris-s5.jpg'}]}}
     ]
   },
   {
