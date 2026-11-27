@@ -556,6 +556,15 @@ const ALL = [
   },
 
   {
+    id:'pg', title:'P&G', ring:'P&G', cat:'TVC · Brand films',
+    img:'img/pg.jpg',
+    lead:'Films for Procter & Gamble brands.',
+    blocks:[
+      {h:'Ariel Max Power × AEG', p:'Ariel Max Power and AEG built a washing machine designed to clean your clothes better. We made one film for the two brands together: a machine and a detergent, working as a single idea.', embeds:[{t:'yt',id:'7KvwSS32lDA'}], one:true},
+      {h:'Head & Shoulders', p:'Germanized TVC campaign for the German market. The brief was simple: take an existing global mechanic, people blurting out “I didn’t know you have dandruff!” the moment they spot a Head & Shoulders bottle, and make it feel unmistakably German. Our hero always fires back with a relaxed, confident “I don’t,” followed by that iconic hair touch. Our job was to find everyday situations Germans instantly recognise, inject them with that slightly awkward, slightly funny social honesty they’re famous for, and let the mechanic do the rest.', gap:true, grid3:true, embeds:[{t:'yt',id:'oKoF4tBtAEw'},{t:'yt',id:'CU-zY1uMRwU'},{t:'yt',id:'Ya76OJvI29w'}]}
+    ]
+  },
+  {
     id:'unfollow', title:'Unfollow Award', ring:'Unfollow Award', cat:'Branding · Logo',
     img: 'https://freight.cargo.site/w/1080/i/0707b63a1787fcf81f6e4840bb48afe3da23d226271bdcab27cfd9257385a6e8/LINES_3.gif',
     lead:'Logo concept and development. The Unfollow Award was created to honor those who don’t follow the rules, the ones who trace their own path, the trend-setters and the real people who dare to make a difference.',
@@ -571,21 +580,22 @@ const ALL = [
 const STILLS = {
   ai:{img:'img/ai-still.jpg'},
   kinder:{img:'img/kinder.jpg'},
+  pg:{img:'img/pg.jpg'},
   wwf:{img:'img/wwf.jpg'},
   ferrero:{img:'img/ferrero.jpg'},
   mcdonalds:{img:'img/mcdonalds.jpg'}
 };
-const PROJECTS = ['wwf','ai','mcdonalds','ferrero','kinder'].map(id=>Object.assign(ALL.find(p=>p.id===id), STILLS[id]));
+const PROJECTS = ['wwf','ai','mcdonalds','ferrero','pg'].map(id=>Object.assign(ALL.find(p=>p.id===id), STILLS[id]));
 
 // Rest of the archive: links to the current site until each gets its own page here.
 const OLD = 'https://gigitachinardi.com/';
 const EXTRA = [
+  {title:'Kinder', href:OLD+'KINDER'},
   {title:'Fiat Freemont', href:OLD+'FIAT_REAR'},
   {title:'Dior TikTok', href:OLD+'Dior-Backstage'},
   {title:'Chris and Crunch.ai', href:OLD+'Chris-and-Crunch'},
   {title:'Lidl', href:OLD+'LIDL'},
   {title:'Power to the Pea', href:OLD+'Endori'},
-  {title:'Head & Shoulders', href:OLD+'H-S'},
   {title:'Unfollow Award', href:OLD+'UNFOLLOW'}
 ];
 
