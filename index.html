@@ -227,6 +227,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .blk.hasbg{position:relative;margin-top:clamp(90px,11vw,170px);padding:clamp(80px,10vw,150px) var(--pad);background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),var(--bg-img) center/cover no-repeat}
 .blk.hasbg p{color:#fff}
 .blk.hasbg .embeds.one{max-width:960px;margin:10px auto 0}
+.blk.hasbg .embeds.one.stack{max-width:1100px}
+.embeds.one.roomy{gap:clamp(40px,6vw,96px)}
 .blk.hasbg .gal.mid{margin-left:auto;margin-right:auto}
 .blk.hasbg .vid.v{box-shadow:0 30px 90px rgba(0,0,0,.55)}
 .blk.gap{padding-top:clamp(90px,11vw,170px)}
@@ -576,8 +578,8 @@ const ALL = [
     img:'img/pg.jpg',
     lead:'Films for Procter & Gamble brands.',
     blocks:[
-      {h:'Ariel Max Power × AEG', p:'Ariel Max Power and AEG built a washing machine designed to clean your clothes better. We made one film for the two brands together: a machine and a detergent, working as a single idea.', embeds:[{t:'yt',id:'7KvwSS32lDA'}], one:true},
-      {h:'Head & Shoulders', p:'Germanized TVC campaign for the German market. The brief was simple: take an existing global mechanic, people blurting out “I didn’t know you have dandruff!” the moment they spot a Head & Shoulders bottle, and make it feel unmistakably German. Our hero always fires back with a relaxed, confident “I don’t,” followed by that iconic hair touch. Our job was to find everyday situations Germans instantly recognise, inject them with that slightly awkward, slightly funny social honesty they’re famous for, and let the mechanic do the rest.', gap:true, one:true, stack:true, embeds:[{t:'yt',id:'oKoF4tBtAEw'},{t:'yt',id:'CU-zY1uMRwU'},{t:'yt',id:'Ya76OJvI29w'}]}
+      {h:'Ariel Max Power × AEG', p:'Ariel Max Power and AEG built a washing machine designed to clean your clothes better. We made one film for the two brands together: a machine and a detergent, working as a single idea.', bg:'img/pg-bg.jpg', embeds:[{t:'yt',id:'7KvwSS32lDA'}], one:true, stack:true},
+      {h:'Head & Shoulders', p:'Germanized TVC campaign for the German market. The brief was simple: take an existing global mechanic, people blurting out “I didn’t know you have dandruff!” the moment they spot a Head & Shoulders bottle, and make it feel unmistakably German. Our hero always fires back with a relaxed, confident “I don’t,” followed by that iconic hair touch. Our job was to find everyday situations Germans instantly recognise, inject them with that slightly awkward, slightly funny social honesty they’re famous for, and let the mechanic do the rest.', gap:true, one:true, roomy:true, embeds:[{t:'yt',id:'oKoF4tBtAEw'},{t:'yt',id:'CU-zY1uMRwU'},{t:'yt',id:'Ya76OJvI29w'}]}
     ]
   },
   {
@@ -790,7 +792,7 @@ function projectHTML(p){
       ${b.ph?`<div class="ph s">${b.ph}</div>`:''}
       ${b.rows?`<ul class="rowlist s">${b.rows.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>`:''}
       ${b.trio?`<div class="trio"><figure class="fm"><video data-vsrc="${b.trio[0].vid}" poster="${b.trio[0].poster||''}" muted loop playsinline preload="none"></video></figure>${embedHTML(b.trio[1])}<figure class="fm"><video data-vsrc="${b.trio[2].vid}" poster="${b.trio[2].poster||''}" muted loop playsinline preload="none"></video></figure></div>`:''}
-      ${b.embeds?`<div class="embeds ${b.grid3?'grid3':''} ${b.wide?'wide':''} ${b.one?'one':''} ${b.stack?'stack':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
+      ${b.embeds?`<div class="embeds ${b.grid3?'grid3':''} ${b.wide?'wide':''} ${b.one?'one':''} ${b.stack?'stack':''} ${b.roomy?'roomy':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
       ${b.cap?`<div class="capline s"><b>${b.cap[0]}</b>${b.cap[1]?`<span>${b.cap[1]}</span>`:''}</div>`:''}
       ${b.link?`<a class="btn" href="${b.link.href}" target="_blank" rel="noopener">${b.link.label} ↗</a>`:''}
     </section>`).join('');
