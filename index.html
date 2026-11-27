@@ -164,6 +164,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .blk .when{color:var(--neon);margin:18px 0 8px}
 .embeds{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));margin-top:10px}
 .embeds.one{grid-template-columns:1fr}
+.embeds.grid3.wide{max-width:1260px}
+.gal.w1100{max-width:1100px;margin-left:auto;margin-right:auto}
+.gal.onetwo{max-width:1100px;margin-left:auto;margin-right:auto;grid-template-columns:1fr 1fr}
+.gal.onetwo figure:first-child{grid-column:1/-1}
 .embeds.grid3{grid-template-columns:repeat(3,1fr);gap:12px;max-width:1000px;margin-left:auto;margin-right:auto}
 @media(max-width:700px){.embeds.grid3{grid-template-columns:1fr}}
 .vid{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
@@ -572,14 +576,14 @@ const ALL = [
     id:'fiat', title:'Fiat Freemont', cat:'Film · Automotive',
     lead:'Film announcing the parking camera and sensor feature of the Fiat Freemont.',
     blocks:[
-      {h:'Rear Gear', p:'Film created to announce the parking camera and sensors of the new Fiat Freemont, which comes with rear view from the factory. “If danger is behind, it warns you.”', embeds:[{t:'vimeo',id:'147746080'},{t:'vimeo',id:'273789127'}]}
+      {h:'Rear Gear', p:'Film created to announce the parking camera and sensors of the new Fiat Freemont, which comes with rear view from the factory. “If danger is behind, it warns you.”', embeds:[{t:'vimeo',id:'147746080'},{t:'vimeo',id:'273789127'}], one:true}
     ]
   },
   {
     id:'dior', title:'Dior TikTok', cat:'TikTok · Content',
     lead:'TikTok content for the Dior Backstage makeup line.',
     blocks:[
-      {h:'Dior Backstage', p:'Videos created for a TikTok channel made exclusively for Douglas makeup sellers, with one goal: engaging content that shows the products of the Backstage makeup line. All very loose and fun, but always thinking about how to highlight the best features of each product.', grid3:true, embeds:[{t:'yt',id:'fiPWXLNRGWw'},{t:'yt',id:'ZhnaXXUUm9w'},{t:'yt',id:'UBdRC1SHTmI'},{t:'yt',id:'jySS_MLjorM'},{t:'yt',id:'eQGmpwOMD54'},{t:'yt',id:'X99Td7GOcsU'}]}
+      {h:'Dior Backstage', p:'Videos created for a TikTok channel made exclusively for Douglas makeup sellers, with one goal: engaging content that shows the products of the Backstage makeup line. All very loose and fun, but always thinking about how to highlight the best features of each product.', grid3:true, wide:true, embeds:[{t:'yt',id:'fiPWXLNRGWw',v:true},{t:'yt',id:'ZhnaXXUUm9w',v:true},{t:'yt',id:'UBdRC1SHTmI',v:true},{t:'yt',id:'jySS_MLjorM',v:true},{t:'yt',id:'eQGmpwOMD54',v:true},{t:'yt',id:'X99Td7GOcsU',v:true}]}
     ]
   },
   {
@@ -603,7 +607,13 @@ const ALL = [
     id:'pea', title:'Power to the Pea', cat:'Campaign · Animation',
     lead:'Campaign for the new vegan chicken line of endori.',
     blocks:[
-      {h:'endori easy peasy', p:'Featuring our little green pea, Peater, the P.E.O. (Pea Executive Officer) of endori. In a world where peas meet Wes Anderson, Peater introduces the new vegan chicken line, a product of his childhood dreams as a young pea who loved chickens.', embeds:[{t:'yt',id:'Op5o_60Irqo'}], one:true}
+      {h:'endori easy peasy', p:'Featuring our little green pea, Peater, the P.E.O. (Pea Executive Officer) of endori. In a world where peas meet Wes Anderson, Peater introduces the new vegan chicken line, a product of his childhood dreams as a young pea who loved chickens.', embeds:[{t:'yt',id:'Op5o_60Irqo'}], one:true},
+      {gap:true, gallery:{cols:2, cls:'onetwo', items:[{img:'img/pea-bld.jpg'},{img:'img/pea-off.jpg'},{img:'img/pea-btn.jpg'}]}},
+      {gap:true, gallery:{cols:3, cls:'w1100', scroll:true, items:[{vid:'img/pea-g1.mp4',poster:'img/pea-g1.jpg'},{vid:'img/pea-g2.mp4',poster:'img/pea-g2.jpg'},{vid:'img/pea-g3.mp4',poster:'img/pea-g3.jpg'}]}},
+      {gap:true, gallery:{cols:2, cls:'onetwo', items:[{img:'img/pea-kit.jpg'},{img:'img/pea-wok.jpg'},{img:'img/pea-pkt.jpg'}]}},
+      {gap:true, gallery:{cols:1, cls:'w1100', items:[{img:'img/pea-pkg.jpg'}]}},
+      {gap:true, gallery:{cols:3, cls:'w1100', scroll:true, items:[{img:'img/pea-d1.jpg'},{img:'img/pea-d2.jpg'},{img:'img/pea-d3.jpg'}]}},
+      {gap:true, gallery:{cols:2, cls:'w1100', items:[{img:'img/pea-o1.jpg'},{img:'img/pea-o2.jpg'}]}}
     ]
   },
   {
@@ -768,7 +778,7 @@ function projectHTML(p){
       ${b.ph?`<div class="ph s">${b.ph}</div>`:''}
       ${b.rows?`<ul class="rowlist s">${b.rows.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>`:''}
       ${b.trio?`<div class="trio"><figure class="fm"><video data-vsrc="${b.trio[0].vid}" poster="${b.trio[0].poster||''}" muted loop playsinline preload="none"></video></figure>${embedHTML(b.trio[1])}<figure class="fm"><video data-vsrc="${b.trio[2].vid}" poster="${b.trio[2].poster||''}" muted loop playsinline preload="none"></video></figure></div>`:''}
-      ${b.embeds?`<div class="embeds ${b.grid3?'grid3':''} ${b.one?'one':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
+      ${b.embeds?`<div class="embeds ${b.grid3?'grid3':''} ${b.wide?'wide':''} ${b.one?'one':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
       ${b.cap?`<div class="capline s"><b>${b.cap[0]}</b>${b.cap[1]?`<span>${b.cap[1]}</span>`:''}</div>`:''}
       ${b.link?`<a class="btn" href="${b.link.href}" target="_blank" rel="noopener">${b.link.label} ↗</a>`:''}
     </section>`).join('');
