@@ -164,6 +164,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .blk .when{color:var(--neon);margin:18px 0 8px}
 .embeds{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));margin-top:10px}
 .embeds.one{grid-template-columns:1fr}
+.embeds.one.stack{max-width:1100px;margin-left:auto;margin-right:auto;gap:clamp(24px,4vw,56px)}
 .embeds.grid3.wide{max-width:1260px}
 .gal.w1100{max-width:1100px;margin-left:auto;margin-right:auto}
 .gal.onetwo{max-width:1100px;margin-left:auto;margin-right:auto;grid-template-columns:1fr 1fr}
@@ -576,7 +577,7 @@ const ALL = [
     lead:'Films for Procter & Gamble brands.',
     blocks:[
       {h:'Ariel Max Power × AEG', p:'Ariel Max Power and AEG built a washing machine designed to clean your clothes better. We made one film for the two brands together: a machine and a detergent, working as a single idea.', embeds:[{t:'yt',id:'7KvwSS32lDA'}], one:true},
-      {h:'Head & Shoulders', p:'Germanized TVC campaign for the German market. The brief was simple: take an existing global mechanic, people blurting out “I didn’t know you have dandruff!” the moment they spot a Head & Shoulders bottle, and make it feel unmistakably German. Our hero always fires back with a relaxed, confident “I don’t,” followed by that iconic hair touch. Our job was to find everyday situations Germans instantly recognise, inject them with that slightly awkward, slightly funny social honesty they’re famous for, and let the mechanic do the rest.', gap:true, grid3:true, embeds:[{t:'yt',id:'oKoF4tBtAEw'},{t:'yt',id:'CU-zY1uMRwU'},{t:'yt',id:'Ya76OJvI29w'}]}
+      {h:'Head & Shoulders', p:'Germanized TVC campaign for the German market. The brief was simple: take an existing global mechanic, people blurting out “I didn’t know you have dandruff!” the moment they spot a Head & Shoulders bottle, and make it feel unmistakably German. Our hero always fires back with a relaxed, confident “I don’t,” followed by that iconic hair touch. Our job was to find everyday situations Germans instantly recognise, inject them with that slightly awkward, slightly funny social honesty they’re famous for, and let the mechanic do the rest.', gap:true, one:true, stack:true, embeds:[{t:'yt',id:'oKoF4tBtAEw'},{t:'yt',id:'CU-zY1uMRwU'},{t:'yt',id:'Ya76OJvI29w'}]}
     ]
   },
   {
@@ -789,7 +790,7 @@ function projectHTML(p){
       ${b.ph?`<div class="ph s">${b.ph}</div>`:''}
       ${b.rows?`<ul class="rowlist s">${b.rows.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>`:''}
       ${b.trio?`<div class="trio"><figure class="fm"><video data-vsrc="${b.trio[0].vid}" poster="${b.trio[0].poster||''}" muted loop playsinline preload="none"></video></figure>${embedHTML(b.trio[1])}<figure class="fm"><video data-vsrc="${b.trio[2].vid}" poster="${b.trio[2].poster||''}" muted loop playsinline preload="none"></video></figure></div>`:''}
-      ${b.embeds?`<div class="embeds ${b.grid3?'grid3':''} ${b.wide?'wide':''} ${b.one?'one':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
+      ${b.embeds?`<div class="embeds ${b.grid3?'grid3':''} ${b.wide?'wide':''} ${b.one?'one':''} ${b.stack?'stack':''} ${b.vert?'vert':''}">${b.embeds.map(embedHTML).join('')}</div>`:''}
       ${b.cap?`<div class="capline s"><b>${b.cap[0]}</b>${b.cap[1]?`<span>${b.cap[1]}</span>`:''}</div>`:''}
       ${b.link?`<a class="btn" href="${b.link.href}" target="_blank" rel="noopener">${b.link.label} ↗</a>`:''}
     </section>`).join('');
