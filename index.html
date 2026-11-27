@@ -514,7 +514,8 @@ const ALL = [
     blocks:[
       {h:'Kinder Pingui', p:'Brand campaign. TVC for Kinder Pingui Germany with our star Ole the Penguin, reminding people of a well-deserved time-out.', embeds:[{t:'vimeo',id:'753753272'}], one:true},
       {h:'Kinder BSR', p:'Social media campaign about Kinder’s brand social responsibilities. Each film targets one specific topic in a playful but informative way, and was adapted into social formats (size and length) and several languages for worldwide reach.',
-       embeds:[{t:'vimeo',id:'833953784'},{t:'vimeo',id:'833951865'},{t:'vimeo',id:'833951886'},{t:'vimeo',id:'833955502'}]},
+       embeds:[{t:'vimeo',id:'833953784'}], one:true},
+      {grid3:true, embeds:[{t:'vimeo',id:'833951865',v:true},{t:'vimeo',id:'833951886',v:true},{t:'vimeo',id:'833955502',v:true}]},
       {h:'Kinder Joy', p:'Promo TVC. Short animated promo for the limited edition of Kinder Joy in partnership with Jurassic World.', embeds:[{t:'vimeo',id:'551845755'}], one:true}
     ]
   },
@@ -731,7 +732,7 @@ let observer = null;
 
 function embedHTML(e){
   if(e.t==='yt')   return `<div class="vid${e.v?' v':''}"><iframe data-src="https://www.youtube-nocookie.com/embed/${e.id}" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>`;
-  if(e.t==='vimeo')return `<div class="vid"><iframe data-src="https://player.vimeo.com/video/${e.id}?badge=0&autopause=0" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+  if(e.t==='vimeo')return `<div class="vid${e.v?' v':''}"><iframe data-src="https://player.vimeo.com/video/${e.id}?badge=0&autopause=0" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
   if(e.t==='mp4')  return `<div class="vid"><video src="${e.src}" autoplay muted loop playsinline controls></video></div>`;
   if(e.t==='img')  return `<div class="pic"><img src="${e.src}" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'"></div>`;
   return '';
